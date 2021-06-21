@@ -6,7 +6,7 @@
 
     <groupId>fr.epsi.demo</groupId>
     <artifactId>maven-hello</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
