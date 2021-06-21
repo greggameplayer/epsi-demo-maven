@@ -8,7 +8,7 @@ public class HelloworldTest {
     @Test
     public void should_say_hello(){
         //test  avec Assertions (junit)
-        Assertions.assertEquals( "Hello Nicolas!", Helloworld.sayHello("Nicolas"));
+        Assertions.assertEquals( "Hello Nicolas!", Helloworld.sayHello("Nicolas Rousseau"));
 
         org.assertj.core.api.Assertions.assertThat(Helloworld.sayHello("Nicolas")).isEqualTo("Hello Nicolas!");
     }
