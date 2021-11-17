@@ -3,20 +3,30 @@ pipeline {
   
   stages {
     stage('Build') {
-        sh 'mvn -Dmaven.test.failure.ignore clean compile'
+      steps {
+       sh 'mvn -Dmaven.test.failure.ignore clean compile' 
+      }
     }
     stage('Test') {
-        sh 'mvn test'
+      steps {
+       sh 'mvn test' 
+      }
     }
     stage('Package') {
-        sh 'mvn package'
+      steps {
+       sh 'mvn package' 
+      }
     }
     stage('Execution') {
-        sh 'cd target/classes;ls;java -cp . fr.epsi.demo.Helloworld'
+      steps {
+       sh 'cd target/classes;ls;java -cp . fr.epsi.demo.Helloworld' 
+      }
     }
     stage('Results') {
-        junit '**/target/surefire-reports/TEST-*.xml'
-        archiveArtifacts 'target/*.jar'
+      steps {
+       junit '**/target/surefire-reports/TEST-*.xml'
+       archiveArtifacts 'target/*.jar' 
+      }
     }
   }
 }
