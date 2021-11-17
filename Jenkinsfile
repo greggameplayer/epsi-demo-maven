@@ -2,14 +2,6 @@ pipeline {
   agent any
   
   stages {
-    stage('Preparation') { // for display purposes
-        // Get some code from a GitHub repository
-        git branch: 'main',
-            url: 'https://github.com/nicolas59/epsi-demo-maven.git'
-        // Get the Maven tool.
-        // ** NOTE: This 'M3' Maven tool must be configured
-        // **       in the global configuration.
-    }
     stage('Build') {
         sh 'mvn -Dmaven.test.failure.ignore clean compile'
     }
