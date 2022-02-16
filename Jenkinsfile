@@ -17,6 +17,12 @@ pipeline {
        sh 'mvn package' 
       }
     }
+	stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar"
+    }
+    }	
     stage('Execution') {
       steps {
        sh 'cd target/classes;ls;java -cp . fr.epsi.demo.Helloworld' 
